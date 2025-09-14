@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ArgoPanel - Configs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div id="home">
+      <img src="argo.png" alt="ArgoPanel">
+      <h1>Argopanel</h1>
+    </div>
+    <div>
+      <button id="headerBtnBuy" onclick="window.location.href = 'buy.html';">Buy</button>
+      <button id="signBtn" onclick="signOut()">Entrar</button>
+    </div>
+  </header>
+
+  <p>Configurações <b>Premium</b> dos maiores cheats do mercado</p> <br>
+
+  <!-- LOGIN -->
+  <div id="login" class="container">
+    <h1>Conecte-se</h1>
+    <input id="pass" type="password" placeholder="Digite a key..." />
+    <button id="loginBtn" onclick="checkKey()">Entrar</button>
+    <p id="msg"></p>
+  </div>
+
+  <!-- CONTROLE -->
+  <div id="controls" style="display: none;">
+    <input id="filter" type="search" placeholder="Filtrar por nome..." oninput="filterSoftwares()" />
+    <button id="toggleExpand" onclick="toggleExpandAll()">Expandir Tudo</button>
+  </div>
+
+  <!-- LISTA -->
+  <div id="configs"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ArgoPanel - Buy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div id="home">
+      <img src="argo.png" alt="ArgoPanel">
+      <h1>Argopanel</h1>
+    </div>
+    <div>
+      <button id="headerBtnBuy" onclick="window.location.href = 'buy.html';">Buy</button>
+      <button id="signBtn" onclick="signOut()">Entrar</button>
+    </div>
+  </header>
+
+  <p>Configurações <b>Premium</b> dos maiores cheats do mercado</p> <br>
+
+  <!-- LOGIN -->
+  <div id="login" class="container">
+    <h1>Produto</h1> <br>
+    <select id="products" name="frutas">
+        <option value="Memesense">Memesense Configs</option>
+        <option value="Midnight">Midnight Configs</option>
+        <option value="Nixware">Nixware Configs</option>
+    </select>
+    <button onclick="buy()" id="buyBtn">Comprar</button> <br>
+    <p id="msg"></p>
+    <li id="key" style="list-style-type: none;"></li>
+  </div>
+
+  <!-- CONTROLE -->
+  <div id="controls" style="display: none;">
+    <input id="filter" type="search" placeholder="Filtrar por nome..." oninput="filterSoftwares()" />
+    <button id="toggleExpand" onclick="toggleExpandAll()">Expandir Tudo</button>
+  </div>
+
+  <!-- LISTA -->
+  <div id="configs"></div>
+
+  <script>
+    const msg = document.getElementById('msg')
+    const API_URL = 'https://api.npoint.io/1c0a2946f8a9343b85e2';
+
+    function buy() {
+        const product = document.getElementById('products').value
+
+        getKeyFromSoftware(API_URL, product).then(key => {
+            if (key) {
+                msg.innerText = 'Key:';
+                msg.style.color = 'green';
+                li.innerText = key;
+            } else {
+                msg.innerText = 'Sem estoque!';
+                msg.style.color = 'maroon';
+                li.innerText = '';
+            }
+        });
+    }
+
+    async function getKeyFromSoftware(url, softwareName) {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Navega até o array de softwares
+            const softwares = data[0]?.softwares;
+
+            // Encontra o software com o nome fornecido
+            const software = softwares.find(s => s.software === softwareName);
+
+            if (!software) {
+                throw new Error(`Software "${softwareName}" não encontrado.`);
+            }
+
+            const randomIndex = Math.floor(Math.random() * software.keys.length);
+            return software.keys[randomIndex];
+        } catch (error) {
+            console.error('Erro ao obter a chave:', error.message);
+            return null;
+        }
+    }
+
+    const li = document.getElementById('key');
+    li.addEventListener('click', () => {
+        const texto = li.innerText;
+
+        navigator.clipboard.writeText(texto)
+        .then(() => alert('Copiado!'))
+        .catch(() => alert('Erro ao copiar texto.'));
+    });
+    
+    function signOut() {
+      location.replace("index.html")
+    }
+  </script>
+</body>
+</html>

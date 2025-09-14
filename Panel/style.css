@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #121212;
+  color: #f1f1f1;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 10px #48d0ef60;
+}
+
+header img {
+  width: 50px;
+  border-radius: 8px;
+}
+
+header button {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+header button:hover {
+  background-color: crimson;
+  color: #fff;
+}
+
+#home {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 8px;
+}
+#home:hover {
+  cursor: pointer;
+  background-color: #242323;
+}
+
+/* LOGIN */
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000033;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container button {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: none;
+}
+
+.container input {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.container button {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #005f9e;
+}
+
+/* CONFIGS & DETALHES */
+#configs {
+  margin-top: 2rem;
+}
+
+details {
+  background-color: #1f1f1f;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+details ul {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+details ul li {
+  padding: 4px 0;
+  border-bottom: 1px solid #333;
+  color: #ccc;
+}
+
+/* CATEGORIA CLASSES */
+.super-legit summary { color: #6eff8f; }
+.legit summary { color: #9ecfff; }
+.semi-rage summary { color: #ffd666; }
+.rage summary { color: #ff6e6e; }
+.super-rage summary { color: #ff63d7; }
+
+/* CONTROLES */
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#controls input,
+#controls button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+}
+
+#filter {
+  width: 200px;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+#toggleExpand {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+#toggleExpand:hover {
+  background-color: #666;
+}
+
+li {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+li:hover {
+  color: #00ffae;
+  transform: scale(1.02);
+}
+
+
+/* LOGIN */
+/* Estilo base para o select */
+select {
+  appearance: none; /* Remove o estilo padrão */
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: 'Segoe UI', sans-serif;
+  outline: none;
+}
+
+/* Seta personalizada usando background SVG */
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+}
+
+/* Hover e foco */
+select:hover,
+select:focus {
+  border-color: #666;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Desabilitado */
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Estilo opcional das opções (limitado) */
+option {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+#headerBtnBuy:hover {
+  background-color: #2c966a;
+}
